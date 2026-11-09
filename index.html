@@ -1,45 +1,3 @@
-### Как подгружать настоящие картинки NFT-подарков прямо из Telegram
-
-Все коллекционные подарки (NFT Gifts), которые улучшены в Telegram, официально хранятся на открытом CDN **Fragment** (`nft.fragment.com`). Любой подарок из ссылки вида `https://t.me/nft/PlushPepe-1` отдаёт картинку и анимацию по прямому адресу без токенов и авторизации:
-
-1. **Картинка подарка (WebP в высоком качестве):**
-   ```text
-   https://nft.fragment.com/gift/<название_слитно_маленькими_буквами>-<номер>.medium.webp
-   ```
-   Примеры рабочих ссылок, которые **уже вшиты в код ниже**:
-   * Plush Pepe: `https://nft.fragment.com/gift/plushpepe-1.medium.webp`
-   * Durov's Cap: `https://nft.fragment.com/gift/durovscap-1.medium.webp`
-   * Swiss Watch: `https://nft.fragment.com/gift/swisswatch-1.medium.webp`
-   * Diamond Ring: `https://nft.fragment.com/gift/diamondring-1.medium.webp`
-   * Eternal Rose: `https://nft.fragment.com/gift/eternalrose-1.medium.webp`
-   * Precious Peach: `https://nft.fragment.com/gift/preciouspeach-1.medium.webp`
-   * Loot Bag: `https://nft.fragment.com/gift/lootbag-1.medium.webp`
-   * Vintage Cigar: `https://nft.fragment.com/gift/vintagecigar-1.medium.webp`
-   * Toy Bear: `https://nft.fragment.com/gift/toybear-1.medium.webp`
-
-2. **Как добавить любой новый NFT-подарок из ТГ:**
-   В коде в массиве `GIFTS` достаточно указать поле `nft: 'PlushPepe-42'` (или полную ссылку `https://t.me/nft/PlushPepe-42`) — функция `tgNftUrl()` сама преобразует её в прямую картинку с серверов Telegram/Fragment.
-
----
-
-### Полный код `index.html` (TG Grader)
-
-В этой версии сделано всё по твоему списку:
-* **Шапка под Telegram Mini App:** слева текст **`TG Grader`** (без иконки), справа раскрывающийся выбор валюты и баланса **`[$, ₽ 100 ▾]`** (`USD $` / `RUB ₽` / `Stars ★`), округлая градиентная кнопка пополнения и аватарка профиля Telegram.
-* **Строка `LIVE` под шапкой:** живая лента выигрышей с подарками.
-* **Сетка «Игры» 2×4 (8 режимов):**
-  1. **Апгрейд** (выбор «Ты отдаёшь» и «Ты получаешь» через всплывающие окна + закуп подарков).
-  2. **Ракетка (Crash)** (график полёта ракеты и забор по множителю).
-  3. **Мины (Mines)** (поле 5×5).
-  4. **Кубик (Dice)** (ползунок шанса и множителя).
-  5. **Машинки** (персонаж переходит шоссе по шагам — нажимаешь «Шаг», растёт икс, можно забрать в любой момент, пока не сбила машина).
-  6. **Аренагрейд** (квадратная арена с бамперами и зонами победы/поражения по шансу апгрейда, где катается физический шарик).
-  7. **Слоты** (автомат 3×3 с NFT-подарками Telegram и линиями выплат).
-  8. **Башня (Tower)** (8 этажей снизу вверх — угадываешь безопасную плитку и поднимаешься выше за большим иксом).
-* **Нижнее меню:** `Игры` | `Кейсы` | `Play Hub` | `Профиль`.
-* **Покупка подарков за баланс:** в профиле и прямо в окне «Ты отдаёшь» есть вкладка **«Магазин гифтов»**, где можно закупить любые NFT-подарки за деньги с баланса.
-
-```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -1654,4 +1612,3 @@ route();
 </script>
 </body>
 </html>
-```
